@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>手写 call</title>
+  </head>
+  <body>
+    <button class="btn">123</button>
+
+    <script>
+      (function () {
+        Function.prototype.myCall = function (context) {
+          // 设置 fn 为调用 myCall 的方法
+          context.fn = this;
+          const otherArg = Array.from(arguments).slice(1);
+          context.fn(...otherArg);
+          let result = context.fn(...otherArg);
+          // 删除这个变量
+          delete context.fn;
+
+          // 返回 result 结果
+          return result;
+        };
+
+        const getNumber = function () {
+          const food1 = new Food("cheese", 5);
+          console.log(22222, food1); // 'cheese'
+        };
+        function Product(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+
+        function Food(name, price) {
+          Product.myCall(this, name, price);
+          this.category = "food";
+        }
+
+        const btn = document.querySelector(".btn");
+        btn.addEventListener("click", getNumber);
+      })();
+    </script>
+  </body>
+</html>
