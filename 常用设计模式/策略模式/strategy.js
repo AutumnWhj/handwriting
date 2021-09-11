@@ -39,6 +39,6 @@ var Authenticator = /** @class */ (function () {
 }());
 var auth = new Authenticator();
 auth.setStrategy(new WechatStrategy());
-auth.authenticate('123456');
+auth.authenticate('12345611');
 auth.setStrategy(new LocalStrategy());
 auth.authenticate('abao', '123');
