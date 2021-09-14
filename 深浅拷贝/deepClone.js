@@ -11,9 +11,9 @@ function checkedType(target) {
 }
 function deepClone(target) {
   let result, targetType = checkedType(target)
-  if(target === 'Object') {
+  if(targetType === 'Object') {
     result = {}
-  } else if(target === 'Array') {
+  } else if(targetType === 'Array') {
     result = []
   } else {
     return result
