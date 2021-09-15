@@ -1,6 +1,6 @@
 // 动手实现一下compose函数
 // 返回的是一个function
-// 递归实现
+// 递归实现 ... 看着就费劲
 function compose(...funcs) {
   // 从args入手 从后往前执行
   let len = funcs.length
@@ -20,7 +20,8 @@ function compose(...funcs) {
     }
   }
 }
-
+// resuce实现 够简洁
+const compose = (...fns) => (value) => reduce(fns.reverse(),(acc , fn ) => fn(acc),value);
 
 // test
 // 测试
