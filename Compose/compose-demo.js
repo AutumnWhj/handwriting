@@ -8,7 +8,11 @@ Function.prototype.after = function(fn) {
 const compose = function(...args) {
   if (args.length) {
     return args.reverse().reduce(function(f1, f2) {
-      return f1.after(f2)
+      return function(...args) {
+        let result = f1.apply(null, args)
+        return fn.call(null,result)
+      }
+      // return f1.after(f2)
     })
   }
 }

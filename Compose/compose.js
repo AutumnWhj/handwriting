@@ -21,7 +21,7 @@ function compose(...funcs) {
   }
 }
 // resuce实现 够简洁
-const compose = (...fns) => (value) => reduce(fns.reverse(),(acc , fn ) => fn(acc),value);
+const compose = (...fns) => (value) => fns.reverse().reduce((acc , fn ) => fn(acc),value);
 
 // test
 // 测试
