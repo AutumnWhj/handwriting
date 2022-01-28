@@ -8,7 +8,6 @@ function _apply(context, arr) {
   } else { // 否则不传
     result = context.fn();
   }
-  // 将这个方法的执行结果传给 result
   delete context.fn
   return result
 } 
